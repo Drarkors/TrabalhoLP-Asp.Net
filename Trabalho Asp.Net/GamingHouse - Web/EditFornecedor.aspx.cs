@@ -11,4 +11,12 @@ public partial class EditFornecedor : System.Web.UI.Page
     {
 
     }
+
+    protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        GamingHouse.Camadas.BLL.Fornecedor bllFornecedor = new GamingHouse.Camadas.BLL.Fornecedor();
+        GridView1.DataSource = bllFornecedor.Select();
+        GridView1.PageIndex = e.NewPageIndex;
+        GridView1.DataBind();
+    }
 }

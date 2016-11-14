@@ -117,6 +117,47 @@ namespace GamingHouse.Camadas.DAL
             return lstCliente;
         }
 
+        public List<Model.Cliente> SelectByLogin(string login)
+        {
+            List<Model.Cliente> lstCliente = new List<Model.Cliente>();
+            SqlConnection conexao = new SqlConnection(strCon);
+            string sql = "SELECT * from Cliente Where (Login like @login);";
+            SqlCommand cmd = new SqlCommand(sql, conexao);
+            cmd.Parameters.AddWithValue("@login", login.Trim() + "%");
+            conexao.Open();
+            try
+            {
+                SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                while (reader.Read())
+                {
+                    Model.Cliente cliente = new Model.Cliente();
+                    cliente.id = Convert.ToInt32(reader[0].ToString());
+                    cliente.nome = reader["nome"].ToString();
+                    cliente.rg = reader["rg"].ToString();
+                    cliente.cpf = reader["cpf"].ToString();
+                    cliente.email = reader["email"].ToString();
+                    cliente.nascimento = Convert.ToDateTime(reader["nascimento"].ToString());
+                    lstCliente.Add(cliente);
+                }
+            }
+            catch
+            {
+                System.Diagnostics.Debug.WriteLine("Deu erro na Seleção de Clientes por Nome...");
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+            return lstCliente;
+        }
+
+        public string getLog(string log)
+        {
+
+            return log;
+        }
+
         public void Insert(Model.Cliente cliente)
         {
             SqlConnection conexao = new SqlConnection(strCon);

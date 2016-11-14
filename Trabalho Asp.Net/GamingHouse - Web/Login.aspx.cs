@@ -20,7 +20,7 @@ public partial class Login : System.Web.UI.Page
         String conexao = ConfigurationManager.ConnectionStrings["GamingHouseConnectionString"].ConnectionString;
         using (SqlConnection con = new SqlConnection(conexao))
         {
-            SqlCommand cmd = new SqlCommand("Select * From Cliente Where Login ='" + UserTxtBox.Text + "' AND Senha='" + PasswordTxtBox.Text + "'", con);
+            SqlCommand cmd = new SqlCommand("Select idCliente From Cliente Where Login ='" + UserTxtBox.Text + "' AND Senha='" + PasswordTxtBox.Text + "'", con);
             con.Open();
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();

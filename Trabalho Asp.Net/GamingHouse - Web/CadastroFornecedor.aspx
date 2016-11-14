@@ -13,7 +13,7 @@
         <label class="col-xs-11">CNPJ</label>
         <div class="col-xs-11">
             <asp:TextBox ID="tbCnpj" runat="server" Class="form-control" placeholder="CNPJ" TextMode="Number" Width="50%" MaxLength="13"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Campo Obrigatório." ControlToValidate="tb" style="color:red" ValidationGroup = "validate"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Campo Obrigatório." ControlToValidate="tbCnpj" style="color:red" ValidationGroup = "validate"></asp:RequiredFieldValidator>
         </div>
       <div class="col-xs-11 space-vert">
             <asp:Button ID="btSignup" runat="server" Class="btn btn-success" Text="Cadastrar" OnClick="btSignup_Click" ValidationGroup="validate" />

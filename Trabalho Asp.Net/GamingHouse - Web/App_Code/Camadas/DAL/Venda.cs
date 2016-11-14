@@ -117,10 +117,9 @@ namespace GamingHouse.Camadas.DAL
         public void Insert(Model.Venda venda)
         {
             SqlConnection conexao = new SqlConnection(strCon);
-            string sql = "Insert into Venda values (@valor,@quantidade,@cliente_id,@produto_id);";
-            sql += "Update Produto set Quantidade = Quantidade - @quantidade where id = @produto_id;";
+            string sql = "Insert into Venda values (@valor * @quantidade,@quantidade,@cliente_id,@produto_id);";
+            sql += "Update Produto set Quantidade = Quantidade - @quantidade where idProduto = @produto_id;";
             SqlCommand cmd = new SqlCommand(sql, conexao);
-            cmd.Parameters.AddWithValue("@id", venda.id);
             cmd.Parameters.AddWithValue("@valor", venda.valor);
             cmd.Parameters.AddWithValue("@quantidade", venda.quantidade);
             cmd.Parameters.AddWithValue("@cliente_id", venda.cliente_id);

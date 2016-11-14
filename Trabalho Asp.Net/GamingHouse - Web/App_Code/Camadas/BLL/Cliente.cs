@@ -28,6 +28,12 @@ namespace GamingHouse.Camadas.BLL
 
             return dalCli.SelectByNome(nome);
         }
+        public List<Model.Cliente> SelectByLogin(string login)
+        {
+            DAL.Cliente dalCli = new DAL.Cliente();
+
+            return dalCli.SelectByLogin(login);
+        }
 
         public void Insert(Model.Cliente cliente)
         {

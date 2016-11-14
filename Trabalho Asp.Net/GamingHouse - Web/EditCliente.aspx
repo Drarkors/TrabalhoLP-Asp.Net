@@ -13,7 +13,7 @@
             <asp:BoundField DataField="CPF" HeaderText="CPF" SortExpression="CPF" />
             <asp:BoundField DataField="Nascimento" HeaderText="Nascimento" SortExpression="Nascimento" />
             <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" DeleteImageUrl="~/Resources/deleteButton.jpg" EditImageUrl="~/Resources/editButton.png" InsertImageUrl="~/Resources/addButton.png" />
+            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" DeleteImageUrl="~/Resources/deleteButton.jpg" EditImageUrl="~/Resources/editButton.png" InsertImageUrl="~/Resources/addButton.png" ButtonType="Image" CancelImageUrl="~/Resources/cancelButton.png" UpdateImageUrl="~/Resources/confirmButton.png" />
         </Columns>
         <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
         <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />

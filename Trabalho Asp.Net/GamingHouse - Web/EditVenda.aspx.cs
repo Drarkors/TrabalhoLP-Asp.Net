@@ -11,4 +11,12 @@ public partial class EditVenda : System.Web.UI.Page
     {
 
     }
+
+    protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        GamingHouse.Camadas.BLL.Venda bllVenda = new GamingHouse.Camadas.BLL.Venda();
+        GridView1.DataSource = bllVenda.Select();
+        GridView1.PageIndex = e.NewPageIndex;
+        GridView1.DataBind();
+    }
 }
